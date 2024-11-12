@@ -99,7 +99,18 @@ a:focus {
  *  03. typography & general theme styles - (_document-setup.scss) 
  *
  * ------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6, .h01, .h02, .h03, .h04, .h05, .h06 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h01,
+.h02,
+.h03,
+.h04,
+.h05,
+.h06 {
 	font-family: "montserrat-bold", sans-serif;
 	color: #151515;
 	font-style: normal;
@@ -107,50 +118,74 @@ h1, h2, h3, h4, h5, h6, .h01, .h02, .h03, .h04, .h05, .h06 {
 	margin-bottom: 2.1rem;
 }
 
-h3, .h03, h4, .h04 {
+h3,
+.h03,
+h4,
+.h04 {
 	margin-bottom: 1.8rem;
 }
-h5, .h05, h6, .h06 {
+
+h5,
+.h05,
+h6,
+.h06 {
 	margin-bottom: 1.2rem;
 }
-h1, .h01 {
+
+h1,
+.h01 {
 	font-size: 3.1rem;
 	line-height: 1.35;
 	letter-spacing: -.1rem;
 }
+
 @media only screen and (max-width:600px) {
-	h1, .h01 {
+
+	h1,
+	.h01 {
 		font-size: 2.6rem;
 		letter-spacing: -.07rem;
 	}
 }
-h2, .h02 {
+
+h2,
+.h02 {
 	font-size: 2.4rem;
 	line-height: 1.25;
 }
-h3, .h03 {
+
+h3,
+.h03 {
 	font-size: 2rem;
 	line-height: 1.5;
 }
-h4, .h04 {
+
+h4,
+.h04 {
 	font-size: 1.7rem;
 	line-height: 1.76;
 }
-h5, .h05 {
+
+h5,
+.h05 {
 	font-size: 1.4rem;
 	line-height: 1.7;
 	text-transform: uppercase;
 	letter-spacing: .2rem;
 }
-h6, .h06 {
+
+h6,
+.h06 {
 	font-size: 1.3rem;
 	line-height: 1.85;
 	text-transform: uppercase;
 	letter-spacing: .2rem;
 }
+
 p img {
 	margin: 0;
 }
+
 p.lead {
 	font-family: 'roboto-light', sans-serif;
 	font-size: 2.4rem;
@@ -158,32 +193,44 @@ p.lead {
 	color: #373737;
 	color: #666666;
 }
+
 @media only screen and (max-width:768px) {
 	p.lead {
 		font-size: 2.1rem;
 	}
 }
-em, i, strong, b {
+
+em,
+i,
+strong,
+b {
 	font-size: 1.7rem;
 	line-height: 3rem;
 	font-style: normal;
 	font-weight: normal;
 }
-em, i {
+
+em,
+i {
 	font-family: 'roboto-italic', sans-serif;
 }
-strong, b {
+
+strong,
+b {
 	font-family: 'roboto-bold', sans-serif;
 }
+
 small {
 	font-size: 1.1rem;
 	line-height: inherit;
 }
+
 blockquote {
 	margin: 4.2rem 0;
 	padding-left: 4.2rem;
 	position: relative;
 }
+
 blockquote:before {
 	content: "\201C";
 	font-size: 10rem;
@@ -195,12 +242,14 @@ blockquote:before {
 	top: 3.6rem;
 	left: 0;
 }
+
 blockquote p {
 	font-family: "roboto-light", sans-serif;
 	padding: 0;
 	font-size: 2.2rem;
 	line-height: 1.75;
 }
+
 blockquote cite {
 	display: block;
 	font-family: "muli-regular", sans-serif;
@@ -208,13 +257,17 @@ blockquote cite {
 	font-style: normal;
 	line-height: 1.714;
 }
+
 blockquote cite:before {
 	content: "\2014 \0020";
 }
-blockquote cite a, blockquote cite a:visited {
+
+blockquote cite a,
+blockquote cite a:visited {
 	color: #373737;
 	border: none;
 }
+
 abbr {
 	font-family: "roboto-bold", sans-serif;
 	font-variant: small-caps;
@@ -222,14 +275,21 @@ abbr {
 	letter-spacing: .05rem;
 	color: #2b2b2b;
 }
-var, kbd, samp, code, pre {
+
+var,
+kbd,
+samp,
+code,
+pre {
 	font-family: Consolas, "Andale Mono", Courier, "Courier New", monospace;
 }
+
 pre {
 	padding: 2.4rem 3rem 3rem;
 	background: #EAEAEA;
 	margin: 4.2rem 0;
 }
+
 code {
 	font-size: 1.4rem;
 	margin: 0 .2rem;
@@ -237,27 +297,34 @@ code {
 	white-space: nowrap;
 	background: #EAEAEA;
 }
-pre > code {
+
+pre>code {
 	display: block;
 	white-space: pre;
 	line-height: 2;
 	padding: 0;
 	margin: 0;
 }
-pre.prettyprint > code {
+
+pre.prettyprint>code {
 	border: none;
 }
+
 del {
 	text-decoration: line-through;
 }
-abbr[title], dfn[title] {
+
+abbr[title],
+dfn[title] {
 	border-bottom: 1px dotted;
 	cursor: help;
 }
+
 mark {
 	background: #FFF49B;
 	color: #000;
 }
+
 hr {
 	border: solid #c2c2c2;
 	border-width: 1px 0 0;
@@ -656,15 +723,15 @@ input[type="radio"] {
 	display: inline;
 }
 
-label > .label-text {
+label>.label-text {
 	display: inline-block;
 	margin-left: 1rem;
 	font-family: "roboto-regular", sans-serif;
 	line-height: inherit;
 }
 
-label > input[type="checkbox"],
-label > input[type="radio"] {
+label>input[type="checkbox"],
+label>input[type="radio"] {
 	margin: 0;
 	position: relative;
 	top: .15rem;
@@ -678,11 +745,13 @@ label > input[type="radio"] {
 }
 
 :-moz-placeholder {
-	color: #777777;  /* Firefox 18- */
+	color: #777777;
+	/* Firefox 18- */
 }
 
 ::-moz-placeholder {
-	color: #777777;  /* Firefox 19+ */
+	color: #777777;
+	/* Firefox 19+ */
 }
 
 :-ms-input-placeholder {
@@ -693,7 +762,7 @@ label > input[type="radio"] {
 	color: #777777 !important;
 }
 
- 
+
 /* ===================================================================
  *  06. buttons - (_button-essentials.scss)
  *
@@ -886,17 +955,17 @@ input::-moz-focus-inner {
 	margin: 0;
 }
 
-.lining dt + dt:before,
-.lining dd + dt:before {
+.lining dt+dt:before,
+.lining dd+dt:before {
 	content: "\A";
 	white-space: pre;
 }
 
-.lining dd + dd:before {
+.lining dd+dd:before {
 	content: ", ";
 }
 
-.lining dd + dd:before {
+.lining dd+dd:before {
 	content: ", ";
 }
 
@@ -912,7 +981,7 @@ input::-moz-focus-inner {
 	counter-reset: definitions;
 }
 
-.dictionary-style dt + dt:before {
+.dictionary-style dt+dt:before {
 	content: ", ";
 	margin-left: -0.2em;
 }
@@ -1082,8 +1151,8 @@ input::-moz-focus-inner {
 .js .animate-this {
 	opacity: 0;
 }
-.oldie .animate-this
-.no-cssanimations .animate-this {
+
+.oldie .animate-this .no-cssanimations .animate-this {
 	opacity: 1;
 }
 
@@ -1187,8 +1256,9 @@ input::-moz-focus-inner {
 .bricks-wrapper .entry-header .entry-title {
 	font-size: 2.5rem;
 	line-height: 1.32;
-	margin-bottom: 1.8rem;	
+	margin-bottom: 1.8rem;
 }
+
 .bricks-wrapper .entry-header .entry-title a,
 .bricks-wrapper .entry-header .entry-title a:visited {
 	color: #000000;
@@ -1199,6 +1269,7 @@ input::-moz-focus-inner {
 	font-size: 1.5rem;
 	margin-bottom: 1.2rem;
 }
+
 .bricks-wrapper .entry-header .entry-meta a,
 .bricks-wrapper .entry-header .entry-meta a:visited {
 	color: #000000;
@@ -1268,7 +1339,8 @@ input::-moz-focus-inner {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-.featured-post-slide .post-content {
+.featured-post-slide .post-content,
+.post-content {
 	display: table-cell;
 	position: relative;
 	vertical-align: middle;
@@ -1392,6 +1464,7 @@ input::-moz-focus-inner {
 }
 
 @media only screen and (max-width:600px) {
+
 	.featured-grid,
 	.featured-post-slide {
 		height: 558px;
@@ -1410,6 +1483,7 @@ input::-moz-focus-inner {
 }
 
 @media only screen and (max-width:400px) {
+
 	.featured-grid,
 	.featured-post-slide {
 		height: 450px;
@@ -1421,7 +1495,7 @@ input::-moz-focus-inner {
 
 }
 
- 
+
 /*  post formats - masonry view - (_common-styles.scss) 
  * ------------------------------------------------------------------- */
 
@@ -1559,6 +1633,7 @@ header {
 	height: 130px;
 	border-bottom: 1px solid #E5E5E5;
 }
+
 header .header-content {
 	height: auto;
 	max-width: 1290px;
@@ -1568,6 +1643,7 @@ header .header-content {
 	right: 0;
 	width: 100%;
 }
+
 header a {
 	border: none;
 }
@@ -1724,11 +1800,15 @@ header .logo a {
 	color: #000000;
 }
 
-.main-navigation li > a {
+.main-navigation li:hover ul {
+	@apply block;
+}
+
+.main-navigation li>a {
 	border-bottom: 2px solid transparent;
 }
 
-.main-navigation li.current > a {
+.main-navigation li.current>a {
 	border-bottom: 2px solid #151515;
 	color: #000000;
 	font-family: "montserrat-bold", sans-serif;
@@ -1784,8 +1864,8 @@ header .logo a {
 	color: #000000;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.sfHover > ul {
+.main-navigation ul li:hover>ul,
+.main-navigation ul li.sfHover>ul {
 	display: block;
 }
 
@@ -1933,7 +2013,7 @@ header .logo a {
 		float: none;
 	}
 
-	.main-navigation > li {
+	.main-navigation>li {
 		display: block;
 		text-align: left;
 		margin-right: 0;
@@ -1955,7 +2035,7 @@ header .logo a {
 		border: none;
 	}
 
-	.main-navigation li.current > a {
+	.main-navigation li.current>a {
 		color: #000000;
 		border: none;
 	}
@@ -1964,7 +2044,7 @@ header .logo a {
 		position: relative;
 	}
 
-	.main-navigation li.has-children > a:after {
+	.main-navigation li.has-children>a:after {
 		content: "\f067";
 		display: inline;
 		padding-left: 10px;
@@ -1987,7 +2067,7 @@ header .logo a {
 		transition: all 0.2s ease-in-out;
 	}
 
-	.main-navigation li.has-children:hover > a:after {
+	.main-navigation li.has-children:hover>a:after {
 		content: "\f068";
 	}
 
@@ -2182,12 +2262,14 @@ header .logo a {
 	}
 
 }
+
 @media only screen and (max-width:600px) {
 	.search-wrap input[type="search"] {
 		font-size: 3.2rem;
 	}
 
 }
+
 @media only screen and (max-width:400px) {
 	.search-wrap input[type="search"] {
 		font-size: 2.4rem;
@@ -2281,10 +2363,12 @@ header .logo a {
 	#content-wrap .row {
 		max-width: 880px;
 	}
+
 	#content-wrap .primary-content {
 		padding-left: 5rem;
 		padding-right: 5rem;
 	}
+
 	#content-wrap .primary-content img {
 		max-width: 844px;
 		margin: 3rem 0 3rem -5rem;
@@ -2296,10 +2380,12 @@ header .logo a {
 	#content-wrap .row {
 		max-width: 880px;
 	}
+
 	#content-wrap .primary-content {
 		padding-left: 4rem;
 		padding-right: 4rem;
 	}
+
 	#content-wrap .primary-content img {
 		max-width: 100%;
 		margin: 3rem 0 3rem 0;
@@ -2311,10 +2397,12 @@ header .logo a {
 	#content-wrap {
 		margin-top: 4.8rem;
 	}
+
 	#content-wrap .primary-content {
 		padding-left: 0;
 		padding-right: 0;
 	}
+
 	#content-wrap .entry-title,
 	#content-wrap .page-title {
 		font-size: 3rem;
@@ -2323,6 +2411,7 @@ header .logo a {
 }
 
 @media only screen and (max-width:600px) {
+
 	#content-wrap .entry-title,
 	#content-wrap .page-title {
 		font-size: 2.8rem;
@@ -2396,6 +2485,7 @@ header .logo a {
 /* bricks masonry
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:1280px) {
+
 	.bricks-wrapper .grid-sizer,
 	.bricks-wrapper .brick {
 		width: 33.33333%;
@@ -2405,13 +2495,16 @@ header .logo a {
 		width: 66.66667%;
 	}
 }
+
 @media only screen and (max-width:1024px) {
 	.bricks-wrapper .brick {
 		padding: 0 18px;
 	}
 
 }
+
 @media only screen and (max-width:960px) {
+
 	.bricks-wrapper .grid-sizer,
 	.bricks-wrapper .brick {
 		width: 50%;
@@ -2421,6 +2514,7 @@ header .logo a {
 		width: 100%;
 	}
 }
+
 @media only screen and (max-width:768px) {
 	.bricks-wrapper .brick {
 		padding: 0 15px;
@@ -2440,6 +2534,7 @@ header .logo a {
 		clear: both;
 	}
 }
+
 @media only screen and (max-width:400px) {
 	.bricks-wrapper .brick {
 		width: 100% !important;
@@ -2463,6 +2558,7 @@ footer {
 	font-size: 1.5rem;
 	color: #8E8E8E;
 }
+
 footer a,
 footer a:visited {
 	color: #000000;
@@ -2597,6 +2693,7 @@ footer ul li {
 }
 
 @media only screen and (max-width:400px) {
+
 	.footer-main .site-links,
 	.footer-main .social-links {
 		text-align: center;
@@ -2699,6 +2796,7 @@ footer ul li {
 	margin-bottom: 5.4rem;
 	color: #999999;
 }
+
 .blog-single .entry-meta a,
 .blog-single .entry-meta a:visited {
 	color: #000000;
@@ -2821,6 +2919,7 @@ footer ul li {
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
 .blog-single .pagenav a:hover span {
 	color: #000000;
 }
@@ -2892,7 +2991,7 @@ footer ul li {
 	padding: 0;
 }
 
-.commentlist > li {
+.commentlist>li {
 	position: relative;
 	list-style: none;
 	margin: 0;
@@ -2985,7 +3084,7 @@ footer ul li {
 		text-align: center;
 	}
 
-	.commentlist > li {
+	.commentlist>li {
 		padding-left: 0;
 	}
 
@@ -2995,7 +3094,7 @@ footer ul li {
 
 }
 
- 
+
 /* post format gallery (_blog.scss)
  * ------------------------------------------------------------------- */
 .format-gallery .post-slider {
@@ -3035,7 +3134,7 @@ footer ul li {
 	opacity: 1;
 }
 
- 
+
 /* post format audio (_blog.scss)
  * ------------------------------------------------------------------- */
 .format-audio .audio-wrap {
@@ -3184,7 +3283,7 @@ footer ul li {
  *  15. page styles
  *
  * ------------------------------------------------------------------- */
- 
+
 /* contact page
  * ------------------------------------------------------------------- */
 
@@ -3224,6 +3323,7 @@ footer ul li {
 }
 
 @media only screen and (max-width:600px) {
+
 	#map-wrap #map-zoom-in,
 	#map-wrap #map-zoom-out {
 		margin-right: 3.5rem;
@@ -3232,6 +3332,7 @@ footer ul li {
 }
 
 @media only screen and (max-width:400px) {
+
 	#map-wrap #map-zoom-in,
 	#map-wrap #map-zoom-out {
 		margin-right: 2.5rem;

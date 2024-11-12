@@ -19,3 +19,42 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.image-slide {
+  @apply absolute top-0 left-0 duration-700 ease-linear;
+}
+
+.image-slide-visible {
+  @apply opacity-100;
+}
+
+.image-slide-invisible {
+  @apply opacity-0;
+}
+.cForm-error{
+  @apply  text-red-700 italic text-2xl 
+}
+
+/* Loader */
+.loader {
+  width: 15px;
+  padding: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: green;
+  --_m:
+    conic-gradient(#0000 10%, #000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 0.8s infinite linear;
+}
+
+/* ------ */
+@keyframes l3 {
+  to {
+    transform: rotate(1turn)
+  }
+}
