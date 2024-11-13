@@ -8,3 +8,8 @@ export type UserComment = {
     name: string,
     profileLink: string,
 }
+export type UserCredential = {
+    email: string,
+    password: string,
+    token:string,
+}

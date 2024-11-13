@@ -416,7 +416,7 @@ p,
 ul,
 ol,
 dl,
-form,
+/* form, */
 .fluid-video-wrapper,
 .ss-custom-select {
 	margin-bottom: 3rem;
@@ -1789,14 +1789,14 @@ header .logo a {
 	margin-right: 0;
 }
 
-.main-navigation li a {
+.main-navigation li a, .logout-btn, .logout-form {
 	display: block;
 	padding-bottom: 9px;
 	color: #898989;
 	border: none;
 }
 
-.main-navigation li a:hover {
+.main-navigation li a:hover, .logout-btn:hover {
 	color: #000000;
 }
 
@@ -1804,10 +1804,21 @@ header .logo a {
 	@apply block;
 }
 
-.main-navigation li>a {
+.main-navigation li>a, .logout-btn, .logout-form {
 	border-bottom: 2px solid transparent;
 }
-
+.logout-btn{
+	text-transform: none;
+	letter-spacing: normal;
+	height: auto;
+	line-height: normal;
+	background-color: transparent;
+	padding: 0%;
+	margin: 0%;
+}
+.logout-btn:hover{
+	background-color: transparent;
+}
 .main-navigation li.current>a {
 	border-bottom: 2px solid #151515;
 	color: #000000;
@@ -1849,7 +1860,7 @@ header .logo a {
 	border: none;
 }
 
-.main-navigation ul li a {
+.main-navigation ul li a, .logout-btn {
 	white-space: nowrap;
 	padding: 16.5px 25px;
 	font-family: "muli-regular", sans-serif;
@@ -1859,7 +1870,7 @@ header .logo a {
 	color: #8E8E8E;
 }
 
-.main-navigation ul li a:hover {
+.main-navigation ul li a:hover, .logout-btn:hover {
 	background: transparent;
 	color: #000000;
 }
@@ -2336,7 +2347,7 @@ header .logo a {
 
 #content-wrap .primary-content img {
 	max-width: 910px;
-	margin: 3rem 0 3rem -6rem;
+	/* margin: 3rem 0 3rem -6rem; */
 }
 
 #content-wrap .primary-content img.pull-right {
@@ -2996,21 +3007,21 @@ footer ul li {
 	list-style: none;
 	margin: 0;
 	padding: 1.8rem 0;
-	padding-left: 14%;
+	/* padding-left: 14%; */
 }
 
 .commentlist li .avatar {
-	position: absolute;
-	left: 0;
-	display: block;
-	height: 6rem;
-	width: 6rem;
+	/* position: absolute; */
+	/* left: 0; */
+	display: inline-block;
+	/* height: 6rem;
+	width: 6rem; */
 }
 
 .commentlist li .avatar img {
-	margin-top: 0.6rem;
-	height: 6rem;
-	width: 6rem;
+	/* margin-top: 0.6rem; */
+	/* height: 6rem; */
+	/* width: 6rem; */
 	border-radius: 100%;
 }
 
@@ -3046,12 +3057,12 @@ footer ul li {
 
 .commentlist li ul.children {
 	margin: 0;
-	padding: 1.8rem 0 0 0;
+	/* padding: 1.8rem 0 0 0; */
 }
 
 .commentlist li ul.children li {
-	padding-left: 5%;
-	padding-top: 1.8rem;
+	padding-left: 10%;
+	/* padding-top: 1.8rem; */
 }
 
 /* comments form

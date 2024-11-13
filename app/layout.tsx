@@ -5,9 +5,9 @@ import "../public/css/base.css"
 import "../public/css/fonts.css"
 import "../public/css/vendor.css"
 import "../public/css/main.css"
-import Script from "next/script";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -32,9 +32,6 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
         <Header></Header>
         {children}
         <Footer></Footer>
-        {/* <Script src="js/jquery-2.1.3.min.js" strategy="beforeInteractive"/>
-        <Script src="js/plugins.js" strategy="beforeInteractive"/>
-        <Script src="js/main.js"/> */}
       </body>
 
     </html>

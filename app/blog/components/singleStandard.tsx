@@ -1,30 +1,29 @@
-import PostSlider from '@/app/components/PostSlider'
-import { postImages } from '@/app/models/ImageData'
-import Image from 'next/image'
-import React, { ReactNode } from 'react'
-import { Blog } from '@/app/models/Blog';
-import { Comment } from '@/app/models/Comment';
-import CommentList from './comment'
-import PageNavigation from './PageNavigation';
-import BlogMetadata from './metadata';
-import AuthorProfile from './authorProfile';
 
+import Image from "next/image";
+import { ReactNode } from "react";
+import CommentList from "../components/comment";
+import AuthorProfile from "../components/authorProfile";
+import BlogMetadata from "../components/metadata";
+import { Blog } from "@/app/models/Blog";
+import { Comment } from '@/app/models/Comment';
+import PageNavigation from "./PageNavigation";
 
 type Props = {
     blog: Blog;
     comments: Comment[];
 }
 
-const SingleGallery = ({ blog, comments }: Props) => {
-    return (
+const SingleStandard = async ({ blog, comments }: Props) => {
+
+    return blog &&
         <section id="content-wrap" className="blog-single">
             <div className="row">
                 <div className="col-twelve">
-
-                    <article className="format-gallery">
-
+                    <article className="format-standard">
                         <div className="content-media">
-                            <PostSlider images={postImages}></PostSlider>
+                            <div className="blog-thumb">
+                                <Image src={blog.thumbnail.src} alt={blog.thumbnail.alt} width={0} height={0} sizes="100vw" className='w-full h-auto' />
+                            </div>
                         </div>
 
                         <div className="primary-content">
@@ -59,18 +58,12 @@ const SingleGallery = ({ blog, comments }: Props) => {
 
                         <PageNavigation></PageNavigation>
 
-
                     </article>
-
-
                 </div>
             </div >
-
             <CommentList comments={comments} ></CommentList>
-
-
         </section >
-    )
+
 }
 
-export default SingleGallery
+export default SingleStandard

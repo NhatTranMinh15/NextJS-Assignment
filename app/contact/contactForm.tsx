@@ -1,8 +1,9 @@
 "use client"
 import React, { useActionState, useState } from 'react'
-import { fromSchema } from './_validation';
+import { fromSchema } from './validation';
 import { z } from 'zod';
-import Loader from '@/components/Loader';
+import Loader from '@/app/components/Loader';
+import { authenticate } from '../auth/login/actions';
 
 type Props = {}
 const ContactForm = (props: Props) => {
@@ -16,8 +17,7 @@ const ContactForm = (props: Props) => {
                 cMessage: formData.get("cMessage"),
             }
             await fromSchema.parseAsync(formValues);
-            console.log(formValues);
-
+            await authenticate(prevState, formData)
         } catch (error) {
             if (error instanceof z.ZodError) {
                 const fieldErrors = error.flatten().fieldErrors;

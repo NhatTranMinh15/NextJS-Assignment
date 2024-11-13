@@ -2,9 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import ImageSlider from "../components/ImageSlider";
-import PostSlider from "../components/PostSlider";
-import { featuredImages, postImages } from "@/models/ImageData"
+import ImageSlider from "./components/ImageSlider";
+import PostSlider from "./components/PostSlider";
+import { featuredImages, postImages } from "@/app/models/ImageData"
 
 export default function Home() {
   useEffect(() => {
