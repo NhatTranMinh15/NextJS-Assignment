@@ -19,7 +19,7 @@ export type Page<T> = {
 }
 export const emptyPage: Page<any> = {
     content: [],
-    currentPage: 0,
+    currentPage: 1,
     totalElements: 0,
     totalPage: 0
 }

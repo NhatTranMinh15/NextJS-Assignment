@@ -1,9 +1,11 @@
 import React from 'react'
 import ContactForm from './contactForm';
+import ContactWrapper from './ContactWrapper';
 
 type Props = {}
 
 const Contact = (props: Props) => {
+
   return (
     <section id="content-wrap" className="site-page">
       <div className="row">
@@ -37,7 +39,7 @@ const Contact = (props: Props) => {
                   </p>
                 </div>
               </div>
-              <ContactForm></ContactForm>
+              <ContactWrapper></ContactWrapper>
             </div>
           </section>
         </div>

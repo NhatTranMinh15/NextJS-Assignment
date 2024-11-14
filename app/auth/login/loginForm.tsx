@@ -1,25 +1,30 @@
 "use client"
-import React, { useActionState} from 'react'
+import React, { useActionState, useState } from 'react'
 import Loader from '@/app/components/Loader';
 import { authenticate } from './actions';
 
 type Props = {}
 const LoginForm = (props: Props) => {
-    const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined);
-    console.log(errorMessage);
+    const [loginType, setLoginType] = useState(true);
+    const [errors, formAction, isPending] = useActionState(authenticate, undefined);
 
     return (
         <form name="loginForm" id="cForm" action={formAction}>
             <fieldset>
-                <div className="form-field">
-                    <input name="email" type="text" id="email" className={"full-width "} placeholder="Your Email" defaultValue="" />
+                <h2>Login</h2>
+                <div className='mb-4'>
+                    <span className='text-gray-600 hover:cursor-pointer hover:text-black duration-100' onClick={(e) => { e.preventDefault(); setLoginType(!loginType) }}>Login with {loginType ? "email" : "username"} instead</span>
                 </div>
+                <div className="form-field">
+                    <input name="credential" type="text" id="credential" className={"full-width"} placeholder={"Your " + (loginType ? "Username" : "Email")} defaultValue="" />
+                </div>
+                <input type="hidden" name="loginType" value={loginType ? "username" : "email"} />
                 <div className="form-field">
                     <input name="password" type="password" id="password" className={"full-width "} placeholder="Password" defaultValue="" />
                 </div>
                 <button type="submit" className="submit button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Login"}</button>
             </fieldset>
-            <p>{errorMessage}</p>
+            {errors?.error && <p className='cForm-error'>{errors.error}</p>}
         </form>
     )
 }

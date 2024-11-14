@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import Logout from './Logout'
 import { Session } from 'next-auth'
 import { signOut } from '@/auth'
 
@@ -18,7 +17,7 @@ const AdminSection = ({ session }: Props) => {
                 <li><Link href="/admin/contacts">Contacts</Link></li>
                 <li>
                     <form className="" action={async () => { 'use server'; await signOut({ redirectTo: '/' }); }}>
-                        <button className="logout-btn mt-0">
+                        <button className="logout-btn mt-0 w-full text-left">
                             Log Out
                         </button>
                     </form>

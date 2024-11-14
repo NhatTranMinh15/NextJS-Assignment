@@ -1,6 +1,5 @@
 import type { NextAuthConfig } from 'next-auth';
-const protectedRoutes = ['/dashboard']
-const publicRoutes = ['/login', '/signup', '/', '/blog']
+import { redirect } from 'next/navigation';
 
 export const authConfig = {
     pages: {
@@ -10,7 +9,11 @@ export const authConfig = {
         authorized({ auth, request: { nextUrl } }) {
             const loggedIn = !!auth?.user;
             const onAdminRoute = nextUrl.pathname.startsWith('/admin');
+            const onAuthRoute = nextUrl.pathname.startsWith('/auth');
             if (onAdminRoute && !loggedIn) {
+                return false
+            }
+            if(onAuthRoute && loggedIn){
                 return false
             }
             return true;

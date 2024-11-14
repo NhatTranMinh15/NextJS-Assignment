@@ -1344,7 +1344,7 @@ input::-moz-focus-inner {
 	display: table-cell;
 	position: relative;
 	vertical-align: middle;
-	z-index: 500;
+	/* z-index: 1; */
 }
 
 .featured-post-slide .entry-meta {
@@ -1800,9 +1800,9 @@ header .logo a {
 	color: #000000;
 }
 
-.main-navigation li:hover ul {
+/* .main-navigation li:hover ul {
 	@apply block;
-}
+} */
 
 .main-navigation li>a, .logout-btn, .logout-form {
 	border-bottom: 2px solid transparent;
@@ -1834,7 +1834,7 @@ header .logo a {
 	border-radius: 0 0 3px 3px;
 	font-size: 11px;
 	z-index: 500;
-	display: none;
+	/* display: none; */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 

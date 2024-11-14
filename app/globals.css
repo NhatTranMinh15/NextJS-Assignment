@@ -31,8 +31,9 @@ body {
 .image-slide-invisible {
   @apply opacity-0;
 }
-.cForm-error{
-  @apply  text-red-700 italic text-2xl 
+
+.cForm-error {
+  @apply text-red-700 italic text-2xl
 }
 
 /* Loader */
@@ -57,4 +58,35 @@ body {
   to {
     transform: rotate(1turn)
   }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-this {
+  animation: 1s ease-out 0s 1 slideUp;
+}
+
+li.has-children:hover .sub-menu {
+  visibility: visible;
+  max-height: 500px;
+  transition: max-height 0.5s, visibility 0.5s linear;
+  transition-delay: 0.3s;
+}
+
+.sub-menu {
+  visibility: hidden;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s, visibility 0.5s linear;
+  transition-delay: 0.3s;
 }

@@ -7,6 +7,7 @@ import BlogMetadata from "../components/metadata";
 import { Blog } from "@/app/models/Blog";
 import { Comment } from '@/app/models/Comment';
 import PageNavigation from "./PageNavigation";
+import { randomInt, randomUUID } from "crypto";
 
 type Props = {
     blog: Blog;
@@ -49,7 +50,7 @@ const SingleStandard = async ({ blog, comments }: Props) => {
                             <p className="tags">
                                 <span>Tagged in :</span>
                                 {blog.tags.map(t => {
-                                    return <a href={t.link}>{t.name}</a>
+                                    return <a key={"tags" + t + randomUUID()} href={t.link}>{t.name}</a>
                                 })}
                             </p>
 
