@@ -42,7 +42,7 @@ export default async function Home(props: { searchParams?: Promise<{ search?: st
 
         <div className="row">
 
-          <Pagination totalPages={totalPage} currentPage={currentPage} ></Pagination>
+          <Pagination totalPages={totalPage} currentPage={page} ></Pagination>
 
         </div>
 

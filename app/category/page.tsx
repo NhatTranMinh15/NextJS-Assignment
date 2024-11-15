@@ -1,14 +1,19 @@
-import PostSlider from '@/app/components/PostSlider'
-import { postImages } from '@/app/lib/ImageData'
-import Image from 'next/image'
 import React from 'react'
 import Pagination from '../components/Pagination'
-import { articles } from '../lib/data'
 import Article from '../components/article/Article'
+import { fetchArticle } from '../api/article/articles'
 
-type Props = {}
+const Category = async (props: { searchParams?: Promise<{ search?: string; page?: string; }>; }) => {
+    const searchParams = await props.searchParams;
 
-const Category = (props: Props) => {
+    const search = searchParams?.search || '';
+
+    const tempPage = Number(searchParams?.page) || 1;
+    const currentPage = tempPage > 0 ? tempPage : 1;
+
+    const articles = await fetchArticle({ page: currentPage, size: 5, sort: "", search })
+
+    const { content, currentPage: page, totalElements, totalPage } = articles;
     return (
         <>
             <section id="page-header">
@@ -25,7 +30,7 @@ const Category = (props: Props) => {
 
                     <div className="bricks-wrapper">
                         {
-                            articles.map(a => {
+                            content.map(a => {
                                 return <Article article={a}></Article>
                             })
                         }
@@ -35,7 +40,7 @@ const Category = (props: Props) => {
 
                 <div className="row">
 
-                    {/* <Pagination></Pagination> */}
+                    <Pagination totalPages={totalPage} currentPage={page} ></Pagination>
                 </div>
 
             </section>

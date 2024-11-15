@@ -14,7 +14,7 @@ export async function fetchArticle(searchPageable: SearchPageableModel): Promise
     const result = at.slice(skip, skip + take);
     return {
         content: result,
-        currentPage: parseInt((skip / size).toString()),
+        currentPage: parseInt(((skip / size) + 1).toString()),
         totalElements: at.length,
         totalPage: parseInt((at.length / size).toString()) + 1
     }

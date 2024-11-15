@@ -18,14 +18,14 @@ export async function fetchContact(pageable: PageableModel): Promise<Page<Contac
     const result = contacts.slice(skip, skip + take);
     return {
         content: result,
-        currentPage: parseInt((skip / size).toString()),
+        currentPage: parseInt(((skip / size) + 1).toString()),
         totalElements: contacts.length,
         totalPage: parseInt((contacts.length / size).toString()) + 1
     }
 }
 export async function getOneContact(id: string): Promise<Contact | undefined> {
     const contacts: Contact[] = await readJSON("./app/lib/contacts.json");
-    const contact = contacts.find(c => { return c.id === id })    
+    const contact = contacts.find(c => { return c.id === id })
     return contact
 }
 export async function addContact(contact: Contact, email: string | null | undefined) {
