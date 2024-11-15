@@ -39,6 +39,6 @@ async function readJSON(path: string) {
 
 async function writeJSON(path: string, array: any[], value: any) {
     array.push(value);
-    await fsPromises.writeFile("./app/lib/contacts.json", JSON.stringify(array), {});
+    await fsPromises.writeFile("./app/lib/contacts.json", JSON.stringify(array, null, 2), {});
     return array;
 }
