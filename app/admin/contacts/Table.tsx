@@ -14,7 +14,10 @@ const headers = [
 ]
 
 function renderAction(model: Contact, header: string) {
-    return <Link href={`contacts/${model.id}`}>Response</Link>
+    return <>
+        {/* <Link href={`contacts/${model.id}`}>Response</Link> */}
+        <Link href={`contacts/${model.id}`}>View</Link>
+    </>
 }
 function switchValue(model: Contact, header: string) {
     const value = model[header];

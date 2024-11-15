@@ -1,7 +1,5 @@
-import { formSchema } from "./validation";
-import { addContact } from "../api/contact/contact";
 import { z } from "zod";
-import { Contact } from "../models/Contact";
+import { formSchema } from "./validation";
 export const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
 
@@ -12,16 +10,7 @@ export const handleFormSubmit = async (prevState: any, formData: FormData) => {
             cMessage: formData.get("cMessage"),
         }
         const parseForm = await formSchema.parseAsync(formValues);
-
-        const contact: Contact = {
-            name: parseForm.cName,
-            email: parseForm.cEmail,
-            website: parseForm.cWebsite,
-            message: parseForm.cMessage,
-            by: undefined,
-            id: ""
-        }
-        await addContact(contact, formData.get("cUser")?.toString() || "");
+        // await addContact(contact, formData.get("cUser")?.toString() || "");
     } catch (error) {
         if (error instanceof z.ZodError) {
             const fieldErrors = error.flatten().fieldErrors;

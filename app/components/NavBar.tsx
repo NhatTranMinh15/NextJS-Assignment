@@ -4,6 +4,7 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 import { ReactNode } from 'react'
 import { TLink } from '../models/General'
 import { Session } from 'next-auth'
+import Search from './Search'
 
 
 type NavLink = TLink & {
@@ -138,15 +139,15 @@ const Nav = (nav: NavLink, segment: string | null) => {
 const NavBar = ({ children }: Props) => {
     const segment = useSelectedLayoutSegment()
     return (
-        <nav id="main-nav-wrap">
-            <ul className="main-navigation sf-menu">
+        <nav id="main-nav-wrap" className='flex flex-row float-right items-center'>
+            <Search></Search>
+            <ul className="main-navigation mb-0">
                 {
                     navLinks.map(nav => {
                         return Nav(nav, segment)
                     })
                 }
-
-                <li className={"has-children " + ((segment === "admin")||(segment === "auth") ? "current" : "")}>
+                <li className={"has-children " + ((segment === "admin") || (segment === "auth") ? "current" : "")}>
                     {children}
                 </li>
 

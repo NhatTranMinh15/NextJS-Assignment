@@ -769,7 +769,7 @@ label>input[type="radio"] {
  * ------------------------------------------------------------------- */
 .button,
 a.button,
-button,
+/* button, */
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
@@ -796,6 +796,8 @@ input[type="button"] {
 	transition: all 0.3s ease-in-out;
 }
 
+
+ 
 .button:hover,
 a.button:hover,
 button:hover,
@@ -1763,8 +1765,8 @@ header .logo a {
  * main navigation - (_layout.css) 
  * ------------------------------------------------------------------- */
 #main-nav-wrap {
-	display: table;
-	float: right;
+	/* display: table;
+	float: right; */
 	padding-right: 85px;
 	font-family: "montserrat-regular", sans-serif;
 	font-size: 15px;

@@ -9,7 +9,7 @@ export async function fetchContact(pageable: PageableModel): Promise<Page<Contac
     let { page, size } = pageable;
     page = page - 1
     const skip = page * size;
-    let contacts: Contact[] = await readJSON("./app/lib/contacts.json");
+    const contacts: Contact[] = await readJSON("./app/lib/contacts.json");
     if (skip > contacts.length || size <= 0 || page < 0) {
         return await new Promise((resolve) => setTimeout(() => { resolve(emptyPage); }, 1000));
     }
@@ -20,8 +20,13 @@ export async function fetchContact(pageable: PageableModel): Promise<Page<Contac
         content: result,
         currentPage: parseInt((skip / size).toString()),
         totalElements: contacts.length,
-        totalPage: parseInt((contacts.length / size).toString())+1
+        totalPage: parseInt((contacts.length / size).toString()) + 1
     }
+}
+export async function getOneContact(id: string): Promise<Contact | undefined> {
+    const contacts: Contact[] = await readJSON("./app/lib/contacts.json");
+    const contact = contacts.find(c => { return c.id === id })    
+    return contact
 }
 export async function addContact(contact: Contact, email: string | null | undefined) {
     const user = users.find(u => { return u.email === email })

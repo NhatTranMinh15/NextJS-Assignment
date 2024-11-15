@@ -1,22 +1,21 @@
-import { articles, getRandomElement, users } from "@/app/lib/data";
+import { articles } from "@/app/lib/data";
 import { Article } from "@/app/models/Blog";
-import { Contact } from "@/app/models/Contact";
-import { emptyPage, Page, PageableModel } from "@/app/models/General";
-import { randomUUID } from "crypto";
+import { emptyPage, Page, SearchPageableModel } from "@/app/models/General";
 
-export async function fetchArticle(pageable: PageableModel): Promise<Page<Article>> {
-    let { page, size } = pageable;
+export async function fetchArticle(searchPageable: SearchPageableModel): Promise<Page<Article>> {
+    let { page, size, search, sort } = searchPageable;
     page = page - 1
     const skip = page * size;
-    if (skip > articles.length || size <= 0 || page < 0) {
+    const at = articles.filter(a => { return a.title.toLowerCase().includes(search.toLowerCase()) });
+    if (skip > at.length || size <= 0 || page < 0) {
         return await new Promise((resolve) => setTimeout(() => { resolve(emptyPage); }, 1000));
     }
-    const take = (skip + size > articles.length) ? articles.length - skip : size;
-    const result = articles.slice(skip, skip + take);
+    const take = (skip + size > at.length) ? at.length - skip : size;
+    const result = at.slice(skip, skip + take);
     return {
         content: result,
         currentPage: parseInt((skip / size).toString()),
-        totalElements: articles.length,
-        totalPage: parseInt((articles.length / size).toString()) + 1
+        totalElements: at.length,
+        totalPage: parseInt((at.length / size).toString()) + 1
     }
 }

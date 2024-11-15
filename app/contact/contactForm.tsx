@@ -29,7 +29,7 @@ const ContactForm = ({ }: Props) => {
                     {errors.cMessage && <p className='cForm-error'>{errors.cMessage}</p>}
                 </div>
                 <input type="hidden" name="cUser" value={session?.data?.user?.email || ""} />
-                <button type="submit" className="submit button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Submit"}</button>
+                <button type="submit" className="submit button button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Submit"}</button>
                 {errors.error && <p className='cForm-error'>{errors.error}</p>}
             </fieldset>
         </form>

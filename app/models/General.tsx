@@ -6,11 +6,8 @@ export type PageableModel = {
     sort: string;
 }
 
-export type SearchPageableModel = {
+export type SearchPageableModel = PageableModel & {
     search: string;
-    page: number;
-    size: number;
-    sort: string;
 }
 
 export type Page<T> = {

@@ -27,7 +27,7 @@ const CommentForm = (props: Props) => {
           <textarea name="cMessage" id="cMessage" className="full-width" placeholder="Your Message" ></textarea>
         </div>
 
-        <button type="submit" className="submit button-primary">Submit</button>
+        <button type="submit" className="submit button button-primary">Submit</button>
 
       </fieldset>
     </form>

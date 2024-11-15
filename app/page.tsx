@@ -4,13 +4,16 @@ import Article from "./components/article/Article";
 import { fetchArticle } from "./api/article/articles";
 import Pagination from "./components/Pagination";
 
-export default async function Home(props: { searchParams?: Promise<{ query?: string; page?: string; }>; }) {
-  const searchParams = await props.searchParams;
-  const query = searchParams?.query || '';
+export default async function Home(props: { searchParams?: Promise<{ search?: string; page?: string; }>; }) {
+  const searchParams = await props.searchParams;  
+
+  const search = searchParams?.search || '';  
+  
   const tempPage = Number(searchParams?.page) || 1;
   const currentPage = tempPage > 0 ? tempPage : 1;
   
-  const articles = await fetchArticle({ page: currentPage, size: 5, sort: "" })
+  const articles = await fetchArticle({ page: currentPage, size: 5, sort: "", search })
+
   const { content, currentPage: page, totalElements, totalPage } = articles;
   
   return (
