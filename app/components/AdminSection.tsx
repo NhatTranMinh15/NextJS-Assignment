@@ -9,7 +9,7 @@ type Props = {
 
 const AdminSection = ({ session }: Props) => {
     return (
-        <li className="has-children">
+        <>
             <Link href={''} className=' text-black font-bold'>
                 Welcome, {session.user?.email}
             </Link>
@@ -23,7 +23,7 @@ const AdminSection = ({ session }: Props) => {
                     </form>
                 </li>
             </ul>
-        </li>
+        </>
     )
 }
 

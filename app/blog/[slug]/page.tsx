@@ -13,9 +13,11 @@ const Page = async ({ params, }: Props) => {
   const comments = await fetchComment(slug);
 
   const blogType = blog.type;
+
   switch (blogType) {
     case BlogType.FORMAT_AUDIO:
       return <SingleAudio blog={blog} comments={comments} ></SingleAudio>
+
     case BlogType.FORMAT_GALLERY:
       return <SingleGallery blog={blog} comments={comments} ></SingleGallery>
 

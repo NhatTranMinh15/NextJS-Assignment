@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'player.vimeo.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

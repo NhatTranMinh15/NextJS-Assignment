@@ -19,6 +19,7 @@ export default async function Contacts(props: { searchParams?: Promise<{ query?:
 
     return (
         <>
+            <h1>Contacts</h1>
             <Table content={content}></Table>
             <Pagination totalPages={totalPage} currentPage={currentPage} ></Pagination>
         </>

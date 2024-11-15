@@ -7,6 +7,8 @@ import "../public/css/vendor.css"
 import "../public/css/main.css"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +32,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header></Header>
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer></Footer>
       </body>
 

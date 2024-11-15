@@ -1,21 +1,22 @@
+import { TLink } from '@/app/models/General';
 import Link from 'next/link'
 import React from 'react'
 
 type Props = {
-    catLinks: Record<string, string>
+    catLinks: TLink[]
     entryTitle: string;
     entryTitleLink: string;
 }
 
-const EntryHeader = ({catLinks, entryTitleLink, entryTitle}: Props) => {
+const ArticleHeader = ({ catLinks, entryTitleLink, entryTitle }: Props) => {
     return (
         <div className="entry-header">
 
             <div className="entry-meta">
                 <span className="cat-links">
                     {
-                        Object.entries(catLinks).map(([n, l]) => {
-                            return <Link href={l}>{n}</Link>
+                        catLinks.map((link) => {
+                            return <Link href={link.link}>{link.name}</Link>
                         })
                     }
                 </span>
@@ -29,4 +30,4 @@ const EntryHeader = ({catLinks, entryTitleLink, entryTitle}: Props) => {
     )
 }
 
-export default EntryHeader
+export default ArticleHeader

@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { Blog, BlogType } from "../models/Blog";
+import { Blog, BlogType, Article, EntryType } from "../models/Blog";
 import { Comment } from "../models/Comment";
 import { User, UserComment } from "../models/User";
 import { Contact } from "../models/Contact";
+import PostSlider from "../components/PostSlider";
+import { postImages } from "./ImageData";
 
 export const users: User[] = [
     {
@@ -13,7 +15,7 @@ export const users: User[] = [
         about: "Admin",
         socialLinks: [],
         password: "admin",
-        // token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImJvYi5icm93bkBleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.cEC4FNIu7zCsDfJylyAZlM66O12O4yz813FndTfg0dk',
+        isAdmin: true
     },
     {
         name: "Jonathan Smith",
@@ -29,7 +31,8 @@ export const users: User[] = [
 
         password: "eveePassword202",
         // token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImJvYi5icm93bkBleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.cEC4FNIu7zCsDfJylyAZlM66O12O4yz813FndTfg0dk',
-        username: "johnathansmith"
+        username: "johnathansmith",
+        isAdmin: false
     },
     {
         name: "Emily Johnson",
@@ -45,7 +48,8 @@ export const users: User[] = [
 
         password: "emilyPassword123",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImVtaWx5LmpvaG5zb25AZXhhbXBsZS5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.4Z5G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: "emilyjohnson"
+        username: "emilyjohnson",
+        isAdmin: false
     },
     {
         name: "Michael Brown",
@@ -61,7 +65,8 @@ export const users: User[] = [
 
         password: "michaelPassword456",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im1pY2hhZWwuYnJvd25AZXhhbXBsZS5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.5Z6G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: "michaelbrown"
+        username: "michaelbrown",
+        isAdmin: false
     },
     {
         name: "Sophia Williams",
@@ -77,7 +82,8 @@ export const users: User[] = [
 
         password: "sophiaPassword789",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNvcGhpYS53aWxsaWFtc0BleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.6Z7G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: ""
+        username: "",
+        isAdmin: false
     }
     , {
         name: "David Lee",
@@ -93,7 +99,8 @@ export const users: User[] = [
 
         password: "davidPassword101",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImRhdmlkLmxlZUBleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.7Z8G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: "davidlee"
+        username: "davidlee",
+        isAdmin: false
     },
     {
         name: "Olivia Martinez",
@@ -109,7 +116,8 @@ export const users: User[] = [
 
         password: "oliviaPassword202",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im9saXZpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.8Z9G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: "oliviamartinez"
+        username: "oliviamartinez",
+        isAdmin: false
     },
     {
         name: "James Wilson",
@@ -125,7 +133,8 @@ export const users: User[] = [
 
         password: "jamesPassword303",
         // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImphbWVzLndpbHNvbkBleGFtcGxlLmNvbSIsImlhdCI6MTUxNjIzOTAyMn0.9Z0G8ayDeha5W2qGotALuEuWIe2Y7GUu0Sz5M",
-        username: "jameswilson"
+        username: "jameswilson",
+        isAdmin: false
     }
 
 ];
@@ -178,6 +187,7 @@ export const blogPosts: Blog[] = [
             alt: ""
         },
         title: "Hey, This Is A Standard Format Post.",
+        slug: "single-standard",
         metatdata: {
             date: new Date("2016-09-06"),
             categories: [
@@ -193,7 +203,7 @@ export const blogPosts: Blog[] = [
             { link: "", name: "varius" },
             { link: "", name: "turpis" }
         ],
-        author: users[1]
+        author: users[1],
     },
     {
         id: "single-audio",
@@ -203,6 +213,7 @@ export const blogPosts: Blog[] = [
             alt: ""
         },
         title: "Hey, This Is an Audio Format Post.",
+        slug: "single-audio",
         metatdata: {
             date: new Date("2016-09-06"),
             categories: [
@@ -218,7 +229,7 @@ export const blogPosts: Blog[] = [
             { link: "", name: "varius" },
             { link: "", name: "turpis" }
         ],
-        author: users[2]
+        author: users[2],
     },
     {
         id: "single-gallery",
@@ -228,6 +239,7 @@ export const blogPosts: Blog[] = [
             alt: ""
         },
         title: "Hey, This Is a Gallery Format Post.",
+        slug: "single-gallery",
         metatdata: {
             date: new Date("2016-09-06"),
             categories: [
@@ -243,7 +255,7 @@ export const blogPosts: Blog[] = [
             { link: "", name: "varius" },
             { link: "", name: "turpis" }
         ],
-        author: users[2]
+        author: users[2],
     },
     {
         id: "single-video",
@@ -253,6 +265,7 @@ export const blogPosts: Blog[] = [
             alt: ""
         },
         title: "Hey, This Is A Video Format Post.",
+        slug: "single-video",
         metatdata: {
             date: new Date("2016-09-06"),
             categories: [
@@ -268,7 +281,7 @@ export const blogPosts: Blog[] = [
             { link: "", name: "varius" },
             { link: "", name: "turpis" }
         ],
-        author: users[3]
+        author: users[3],
     },
 ];
 
@@ -451,45 +464,255 @@ export const comments: Comment[] = [
     }
 ];
 
-export let contacts: Contact[] = [
+export const articles: Article[] = [
     {
-        name: "Alice Johnson",
-        email: "alice@example.com",
-        website: "https://alice.com",
-        message: "Hello, this is Alice!",
-        by: getRandomElement(users)
+        thumbnail: {
+            src: "/images/thumbs/diagonal-building.jpg",
+            alt: "building"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "Just a Standard Format Post.",
+        categories: [
+            {
+                link: "",
+                name: "Design"
+            },
+            {
+                link: "",
+                name: "Photography"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
     },
     {
-        name: "Bob Brown",
-        email: "bob@example.com",
-        website: "https://bob.com",
-        message: "Hi, I am Bob.",
-        by: getRandomElement(users)
+        thumbnail: {
+            src: "/images/thumbs/ferris-wheel.jpg",
+            alt: "ferris wheel"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "This Is Another Standard Format Post.",
+        categories: [
+            {
+                link: "",
+                name: "Design"
+            },
+            {
+                link: "",
+                name: "UI"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
     },
     {
-        name: "Charlie Davis",
-        email: "charlie@example.com",
-        website: "https://charlie.com",
-        message: "Hey, this is Charlie!",
-        by: getRandomElement(users)
+        thumbnail: {
+            src: "/images/thumbs/concert.jpg",
+            alt: "concert"
+        },
+        slug: "single-audio",
+        link: "/blog/single-audio",
+        type: EntryType.FORMAT_AUDIO,
+        audio: "/media/AirReview-Landmarks-02-ChasingCorporate.mp3",
+        title: "This Is Link Audio Format Post.",
+        categories: [
+            {
+                link: "",
+                name: "Design"
+            },
+            {
+                link: "",
+                name: "Music"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
     },
     {
-        name: "Diana Evans",
-        email: "diana@example.com",
-        website: "https://diana.com",
-        message: "Hello, Diana here.",
-        by: getRandomElement(users)
+        thumbnail: {
+            src: "",
+            alt: ""
+        },
+        slug: "single-quote",
+        link: "",
+        type: EntryType.FORMAT_QUOTE,
+        quotes: [
+            <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>,
+            <cite>Dieter Rams</cite>
+        ],
+        title: "",
+        categories: [],
     },
     {
-        name: "Eve Foster",
-        email: "eve@example.com",
-        website: "https://eve.com",
-        message: "Hi, I'm Eve.",
-        by: getRandomElement(users)
-    }
-];
+        thumbnail: {
+            src: "/images/thumbs/shutterbug.jpg",
+            alt: "Shutterbug"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "Photography Skills Can Improve Your Graphic Design.",
+        categories: [
+            {
+                link: "",
+                name: "Photography"
+            },
+            {
+                link: "",
+                name: "html"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/usaf-rocket.jpg",
+            alt: "USAF rocket"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "The 10 Golden Rules of Clean Simple Design.",
+        categories: [
+            {
+                link: "",
+                name: "Branding"
+            },
+            {
+                link: "",
+                name: "Mockup"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/diagonal-building.jpg",
+            alt: "building"
+        },
+        slug: "single-gallery",
+        link: "/blog/single-gallery",
+        type: EntryType.FORMAT_GALLERY,
+        slider: postImages,
+        title: "Workspace Design Trends and Ideas.",
+        categories: [
+            {
+                link: "",
+                name: "Branding"
+            },
+            {
+                link: "",
+                name: "Wordpress"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/diagonal-building.jpg",
+            alt: "building"
+        },
+        slug: "single-link",
+        link: "http://www.dreamhost.com",
+        type: EntryType.FORMAT_LINK,
+        title: "Looking for affordable & reliable web hosting? We recommend Dreamhost.",
+        categories: [],
+        excerpt: ""
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/diagonal-pattern.jpg",
+            alt: "Pattern"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "You Can See Patterns Everywhere.",
+        categories: [
+            {
+                link: "",
+                name: "Design"
+            },
+            {
+                link: "",
+                name: "UI"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/ottawa-bokeh.jpg",
+            alt: "bokeh"
+        },
+        slug: "single-video",
+        link: "/blog/single-video",
+        type: EntryType.FORMAT_VIDEO,
+        video: "http://player.vimeo.com/video/14592941?title=0&amp;byline=0&amp;portrait=0&amp;color=F64B39",
 
-function getRandomElement(arr: any[]) {
+        title: "This Is Link Video Post Format.",
+        categories: [
+            {
+                link: "",
+                name: "Design"
+            },
+            {
+                link: "",
+                name: "Branding"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/lighthouse.jpg",
+            alt: "Lighthouse"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "Breathtaking Photos of Lighthouses.",
+        categories: [
+            {
+                link: "",
+                name: "Photography"
+            },
+            {
+                link: "",
+                name: "Design"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+    {
+        thumbnail: {
+            src: "/images/thumbs/liberty.jpg",
+            alt: "Liberty"
+        },
+        slug: "single-standard",
+        link: "/blog/single-standard",
+        type: EntryType.FORMAT_STANDARD,
+        title: "Designing With Black and White.",
+        categories: [
+            {
+                link: "",
+                name: "Branding"
+            },
+            {
+                link: "",
+                name: "html"
+            }
+        ],
+        excerpt: "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim."
+    },
+]
+
+
+
+export function getRandomElement(arr: any[]) {
     const randomIndex = Math.floor(Math.random() * arr.length);
     return arr[randomIndex];
 }
+
+

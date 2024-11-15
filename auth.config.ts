@@ -1,5 +1,4 @@
 import type { NextAuthConfig } from 'next-auth';
-import { redirect } from 'next/navigation';
 
 export const authConfig = {
     pages: {
@@ -8,12 +7,19 @@ export const authConfig = {
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
             const loggedIn = !!auth?.user;
+            
+            const onAdminAuthRoute = nextUrl.pathname.startsWith('/admin/login');
+            if (onAdminAuthRoute && !loggedIn) {
+                return true
+            }
+
             const onAdminRoute = nextUrl.pathname.startsWith('/admin');
-            const onAuthRoute = nextUrl.pathname.startsWith('/auth');
             if (onAdminRoute && !loggedIn) {
                 return false
             }
-            if(onAuthRoute && loggedIn){
+
+            const onAuthRoute = nextUrl.pathname.startsWith('/auth');
+            if (onAuthRoute && loggedIn) {
                 return false
             }
             return true;

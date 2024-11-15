@@ -2,6 +2,7 @@
 import { users } from '@/app/lib/data';
 import { Contact } from '@/app/models/Contact';
 import { PageableModel, Page, emptyPage } from '@/app/models/General';
+import { randomUUID } from 'crypto';
 import fsPromises from 'fs/promises';
 
 export async function fetchContact(pageable: PageableModel): Promise<Page<Contact>> {
@@ -25,6 +26,7 @@ export async function fetchContact(pageable: PageableModel): Promise<Page<Contac
 export async function addContact(contact: Contact, email: string | null | undefined) {
     const user = users.find(u => { return u.email === email })
     contact.by = user;
+    contact.id = randomUUID();
     let contacts = await readJSON("./app/lib/contacts.json");
     contacts = await writeJSON("./app/lib/contacts.json", contacts, contact);
 }

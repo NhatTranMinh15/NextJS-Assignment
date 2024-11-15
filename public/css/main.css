@@ -1344,7 +1344,7 @@ input::-moz-focus-inner {
 	display: table-cell;
 	position: relative;
 	vertical-align: middle;
-	/* z-index: 1; */
+	z-index: 1;
 }
 
 .featured-post-slide .entry-meta {
@@ -1789,14 +1789,17 @@ header .logo a {
 	margin-right: 0;
 }
 
-.main-navigation li a, .logout-btn, .logout-form {
+.main-navigation li a,
+.logout-btn,
+.logout-form {
 	display: block;
 	padding-bottom: 9px;
 	color: #898989;
 	border: none;
 }
 
-.main-navigation li a:hover, .logout-btn:hover {
+.main-navigation li a:hover,
+.logout-btn:hover {
 	color: #000000;
 }
 
@@ -1804,10 +1807,13 @@ header .logo a {
 	@apply block;
 } */
 
-.main-navigation li>a, .logout-btn, .logout-form {
+.main-navigation li>a,
+.logout-btn,
+.logout-form {
 	border-bottom: 2px solid transparent;
 }
-.logout-btn{
+
+.logout-btn {
 	text-transform: none;
 	letter-spacing: normal;
 	height: auto;
@@ -1816,9 +1822,11 @@ header .logo a {
 	padding: 0%;
 	margin: 0%;
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
 	background-color: transparent;
 }
+
 .main-navigation li.current>a {
 	border-bottom: 2px solid #151515;
 	color: #000000;
@@ -1860,7 +1868,8 @@ header .logo a {
 	border: none;
 }
 
-.main-navigation ul li a, .logout-btn {
+.main-navigation ul li a,
+.logout-btn {
 	white-space: nowrap;
 	padding: 16.5px 25px;
 	font-family: "muli-regular", sans-serif;
@@ -1870,7 +1879,8 @@ header .logo a {
 	color: #8E8E8E;
 }
 
-.main-navigation ul li a:hover, .logout-btn:hover {
+.main-navigation ul li a:hover,
+.logout-btn:hover {
 	background: transparent;
 	color: #000000;
 }

@@ -1,5 +1,5 @@
 import PostSlider from '@/app/components/PostSlider'
-import { postImages } from '@/app/models/ImageData'
+import { postImages } from '@/app/lib/ImageData'
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
 import { Blog } from '@/app/models/Blog';

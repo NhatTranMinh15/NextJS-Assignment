@@ -10,7 +10,6 @@ const Layout = ({ children }: Props) => {
         <section id="content-wrap" className="blog-single">
             <div className="row">
                 <div className="col-twelve">
-                    <h1>Contacts</h1>
                     <Suspense fallback={<Loading />}>{children}</Suspense>
                 </div>
             </div >

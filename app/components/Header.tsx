@@ -24,14 +24,8 @@ const Header = async (props: Props) => {
                         <Link href="/">Author</Link>
                     </div>
 
-                    <NavBar>
-                        {session ?
-                            <>
-                                <AdminSection session={session}></AdminSection>
-
-                            </>
-                            : <li><Link href="/auth/login" title="">Login</Link></li>
-                        }
+                    <NavBar  >
+                        {session ? <AdminSection session={session}></AdminSection> : <Link href="/admin/login" title="">Login</Link>}
                     </NavBar>
 
                     <div className="search-wrap">

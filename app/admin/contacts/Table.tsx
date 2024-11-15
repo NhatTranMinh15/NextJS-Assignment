@@ -10,7 +10,12 @@ const headers = [
     { name: "Email", value: "email" },
     { name: "Website", value: "website" },
     { name: "Message", value: "message" },
+    { name: "Action", value: "action" },
 ]
+
+function renderAction(model: Contact, header: string) {
+    return <Link href={`contacts/${model.id}`}>Response</Link>
+}
 function switchValue(model: Contact, header: string) {
     const value = model[header];
     switch (header) {
@@ -18,10 +23,15 @@ function switchValue(model: Contact, header: string) {
             return <Link href={value}>{value}</Link>
         case "email":
             return <Link href={"mailto:" + value}>{value}</Link>
+        case "action":
+            return renderAction(model, header);
         default:
             return value
     }
 }
+
+
+
 
 const Table = ({ content }: Props) => {
     return (
@@ -45,6 +55,7 @@ const Table = ({ content }: Props) => {
                         }
                     </tr>
                 })}
+
             </tbody>
         </table>
     )

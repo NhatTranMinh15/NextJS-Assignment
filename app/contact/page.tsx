@@ -1,11 +1,9 @@
 import React from 'react'
 import ContactForm from './contactForm';
-import ContactWrapper from './ContactWrapper';
-
+import { SessionProvider } from 'next-auth/react';
 type Props = {}
 
-const Contact = (props: Props) => {
-
+const Contact = async (props: Props) => {
   return (
     <section id="content-wrap" className="site-page">
       <div className="row">
@@ -39,7 +37,9 @@ const Contact = (props: Props) => {
                   </p>
                 </div>
               </div>
-              <ContactWrapper></ContactWrapper>
+              <SessionProvider>
+                <ContactForm ></ContactForm>
+              </SessionProvider>
             </div>
           </section>
         </div>

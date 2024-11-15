@@ -8,7 +8,7 @@ type Props = { totalPages: number, currentPage: number }
 const Pagination = ({ totalPages, currentPage }: Props) => {
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    
+
     const isFirstPage = currentPage === 1;
     const isLastPage = currentPage === totalPages;
 
@@ -20,7 +20,7 @@ const Pagination = ({ totalPages, currentPage }: Props) => {
 
     const getLink = (key: string, label: string | number, page: number, disable: boolean) => {
         if (disable) {
-            return <div key={key} className='page-numbers hover:cursor-pointer'>{label}</div>
+            return <div key={key} className={'page-numbers hover:cursor-pointer border-black border'}> {label}</div >
         }
         else {
             return <Link key={key} className="page-numbers" href={createPageURL(page)}>{label}</Link>
@@ -30,7 +30,7 @@ const Pagination = ({ totalPages, currentPage }: Props) => {
     const renderPageItems = () => {
         const items = [];
         if (totalPages <= 5) {
-            for (let i = 1; i <= totalPages; i++) {                
+            for (let i = 1; i <= totalPages; i++) {
                 items.push(getLink("page-" + i, i, i, i === currentPage));
             }
         }

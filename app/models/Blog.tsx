@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { User } from "./User";
+import { TImage, TLink } from "./General";
+import { ReactNode } from "react";
 
-export enum PostType {
+export enum EntryType {
     FORMAT_STANDARD = "format-standard",
     FORMAT_AUDIO = "format-audio",
     FORMAT_QUOTE = "format-quote",
@@ -17,10 +19,7 @@ export enum BlogType {
 }
 export type BlogMetadata = {
     date: Date;
-    categories: {
-        link: string;
-        name: string;
-    }[]
+    categories: TLink[]
 }
 
 export type Blog = {
@@ -31,14 +30,27 @@ export type Blog = {
         alt: string;
     }
     title: string;
+    slug: string;
     metatdata: BlogMetadata;
     lead: string;
     content: (string | React.ReactNode)[];
-    tags: {
-        link: string;
-        name: string;
-    }[]
+    tags: TLink[]
     author: User
+}
+
+export type Article = {
+    id?: string;
+    thumbnail: TImage
+    slug: string;
+    link: string;
+    type: EntryType;
+    title: string;
+    categories: TLink[];
+    excerpt?: string;
+    quotes?: ReactNode[];
+    slider?: TImage[];
+    audio?: string;
+    video?: string;
 }
 
 const options: Intl.DateTimeFormatOptions = {
@@ -50,4 +62,3 @@ const options: Intl.DateTimeFormatOptions = {
 export const parseDate = (date: Date) => {
     return date.toLocaleDateString('en-US', options);
 }
-
