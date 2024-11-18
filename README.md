@@ -39,10 +39,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Fill out the form and click submit
 
 ### 4. Login as admin
-- Choose *login* in navigation bar
+- Choose *login* in navigation bar or navigate to [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
 - Use `username`: **admin** and `password`: **admin** to sign in
 
 ### 5. View all contacts
-- Visit [http://localhost:3000/admin/contacts](http://localhost:3000/admin/contacts) to see all contacts
+- Visit [http://localhost:3000/admin/contacts](http://localhost:3000/admin/contacts) after login to see all contacts
+- Choose different pages to explore more content.
 - Use search bar to limit what you want to see
 - Click `View` to view full contact message.
+- Reponse to the contact **(WIP)**
