@@ -20,6 +20,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button:disabled {
+  @apply opacity-50
+}
+
 .image-slide {
   @apply absolute top-0 left-0 duration-700 ease-linear;
 }

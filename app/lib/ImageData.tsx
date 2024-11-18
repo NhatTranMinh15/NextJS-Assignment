@@ -5,6 +5,9 @@ import featuredImage3 from "@/public/images/thumbs/featured/featured-3.jpg";
 import work1 from "@/public/images/thumbs/gallery/work1.jpg";
 import work2 from "@/public/images/thumbs/gallery/work2.jpg";
 import work3 from "@/public/images/thumbs/gallery/work3.jpg";
+import gallery1 from "@/public/images/thumbs/single/gallery/single-gallery-01.jpg";
+import gallery2 from "@/public/images/thumbs/single/gallery/single-gallery-02.jpg";
+import gallery3 from "@/public/images/thumbs/single/gallery/single-gallery-03.jpg";
 import sliderImage1 from "@/public/images/thumbs/gallery/work1.jpg";
 import sliderImage2 from "@/public/images/thumbs/gallery/work2.jpg";
 import sliderImage3 from "@/public/images/thumbs/gallery/work3.jpg";
@@ -57,6 +60,32 @@ export const postImages: TImage[] = [
     src: ""
   },
 ];
+
+export const galleryImages: TImage[] = [
+  {
+    id: "0",
+    image: gallery1,
+    meta: [],
+    alt: "",
+    src: ""
+  },
+  {
+    id: "1",
+    image: gallery2,
+    meta: [""],
+    alt: "",
+    src: ""
+  },
+  {
+    id: "2",
+    image: gallery3,
+    meta: [""],
+    alt: "",
+    src: ""
+  },
+];
+
+
 
 export const sliderImages: TImage[] = [
   {

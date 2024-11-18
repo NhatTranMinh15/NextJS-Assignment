@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/login',
-        destination: '/auth/login',
+        destination: '/admin/login',
       },
     ]
   },

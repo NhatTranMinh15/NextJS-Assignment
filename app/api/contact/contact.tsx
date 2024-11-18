@@ -1,15 +1,18 @@
 "use server"
 import { users } from '@/app/lib/data';
 import { Contact } from '@/app/models/Contact';
-import { PageableModel, Page, emptyPage } from '@/app/models/General';
+import { PageableModel, Page, emptyPage, SearchPageableModel } from '@/app/models/General';
 import { randomUUID } from 'crypto';
 import fsPromises from 'fs/promises';
 
-export async function fetchContact(pageable: PageableModel): Promise<Page<Contact>> {
-    let { page, size } = pageable;
+export async function fetchContact(pageable: SearchPageableModel): Promise<Page<Contact>> {
+    let { page, size, search } = pageable;
     page = page - 1
     const skip = page * size;
-    const contacts: Contact[] = await readJSON("./app/lib/contacts.json");
+    let contacts: Contact[] = await readJSON("./app/lib/contacts.json");
+    if (search) {
+        contacts = contacts.filter((contact) => { return contact.name.includes(search) || contact.message.includes(search) });
+    }
     if (skip > contacts.length || size <= 0 || page < 0) {
         return await new Promise((resolve) => setTimeout(() => { resolve(emptyPage); }, 1000));
     }

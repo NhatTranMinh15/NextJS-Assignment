@@ -16,11 +16,11 @@ const LoginForm = (props: Props) => {
                     <span className='text-gray-600 hover:cursor-pointer hover:text-black duration-100' onClick={(e) => { e.preventDefault(); setLoginType(!loginType) }}>Login with {loginType ? "email" : "username"} instead</span>
                 </div>
                 <div className="form-field">
-                    <input name="credential" type="text" id="credential" className={"full-width"} placeholder={"Your " + (loginType ? "Username" : "Email")} defaultValue="" />
+                    <input name="credential" type="text" id="credential" className={"full-width"} placeholder={"Your " + (loginType ? "Username" : "Email") + ". Use admin" + (loginType ? "" : "@gmail.com")} />
                 </div>
                 <input type="hidden" name="loginType" value={loginType ? "username" : "email"} />
                 <div className="form-field">
-                    <input name="password" type="password" id="password" className={"full-width "} placeholder="Password" defaultValue="" />
+                    <input name="password" type="password" id="password" className={"full-width "} placeholder="Password. Use admin" />
                 </div>
                 <button type="submit" className="submit button button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Login"}</button>
             </fieldset>

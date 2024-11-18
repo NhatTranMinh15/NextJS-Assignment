@@ -1,5 +1,5 @@
 import PostSlider from '@/app/components/PostSlider'
-import { postImages } from '@/app/lib/ImageData'
+import { galleryImages, postImages } from '@/app/lib/ImageData'
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
 import { Blog } from '@/app/models/Blog';
@@ -24,7 +24,7 @@ const SingleGallery = ({ blog, comments }: Props) => {
                     <article className="format-gallery">
 
                         <div className="content-media">
-                            <PostSlider images={postImages}></PostSlider>
+                            <PostSlider images={galleryImages}></PostSlider>
                         </div>
 
                         <div className="primary-content">
@@ -50,7 +50,7 @@ const SingleGallery = ({ blog, comments }: Props) => {
                             <p className="tags">
                                 <span>Tagged in :</span>
                                 {blog.tags.map(t => {
-                                    return <a href={t.link}>{t.name}</a>
+                                    return <a key={Math.random()} href={t.link}>{t.name}</a>
                                 })}
                             </p>
 

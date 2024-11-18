@@ -26,8 +26,8 @@ const Footer = (props: Props) => {
             <h4>Site Links</h4>
 
             <ul>
-              <li><Link href="/#">About Us</Link></li>
-              <li><Link href="/#">Blog</Link></li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/">Blog</Link></li>
               <li><Link href="/#">FAQ</Link></li>
               <li><Link href="/#">Terms</Link></li>
               <li><Link href="/#">Privacy Policy</Link></li>

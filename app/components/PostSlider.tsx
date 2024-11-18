@@ -18,7 +18,7 @@ const PostSlider = ({ images }: Props) => {
         <div className="relative w-full min-h-[400px] overflow-hidden cursor-pointer" onClick={nextSlide}>
             {
                 images.map((image, id) => {
-                    return <Image key={id} src={image.src} alt={image.alt} fill className={"w-auto image-slide " + (id == currentIndex ? "image-slide-visible" : "image-slide-invisible")} />
+                    return <Image key={id} src={image.image || ""} alt={image.alt} fill className={"image-slide " + (id == currentIndex ? "image-slide-visible" : "image-slide-invisible")} />
                 })
             }
         </div>

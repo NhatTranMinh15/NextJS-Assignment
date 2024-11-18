@@ -8,13 +8,15 @@ import Table from './Table';
 type Props = {}
 export const revalidate = 10
 
-export default async function Contacts(props: { searchParams?: Promise<{ query?: string; page?: string; }>; }) {
+export default async function Contacts(props: { searchParams?: Promise<{ search?: string; page?: string; }>; }) {
     const searchParams = await props.searchParams;
 
-    const query = searchParams?.query || '';
+    const search = searchParams?.search || '';
+    console.log(search);
+    
     const tempPage = Number(searchParams?.page) || 1;
     const currentPage = tempPage > 0 ? tempPage : 1;
-    const contacts = await fetchContact({ page: currentPage, size: 5, sort: "" });
+    const contacts = await fetchContact({ page: currentPage, size: 5, sort: "", search:search });
     const { content, currentPage: page, totalElements, totalPage } = contacts;
 
     return (

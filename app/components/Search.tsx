@@ -21,7 +21,7 @@ const Search = (props: Props) => {
     return (
         <>
             <input
-                className="min-w-[15ch] w-[30ch] flex h-20 mb-0 mr-10 rounded-full p-4"
+                className="min-w-[15ch] w-[30ch] flex h-20 mb-0 mr-10 rounded-full p-5"
                 onChange={(e) => {
                     handleSearch(e.target.value);
                 }}
