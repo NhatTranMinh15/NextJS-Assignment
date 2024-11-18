@@ -1,8 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+First, install all dependencies
 
-First, run the development server:
+```bash
+npm i
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +21,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. View all blogs
+- View blogs at [http://localhost:3000](http://localhost:3000) or [http://localhost:3000/category](http://localhost:3000/category).
+- Choose different pages to explore more content.
+- Use search bar to limit what you want to see
 
-## Learn More
+### 2. View indivitual blog
+- Click on a blog to view all of its contents
+- Scroll down to view comments
+- Leave your comments **(WIP)**
+- Reply to others comments **(WIP)**
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Leave a contact
+- Visit [http://localhost:3000/contact](http://localhost:3000/contact)
+- Fill out the form and click submit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Login as admin
+- Choose *login* in navigation bar
+- Use `username`: **admin** and `password`: **admin** to sign in
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. View all contacts
+- Visit [http://localhost:3000/admin/contacts](http://localhost:3000/admin/contacts) to see all contacts
+- Use search bar to limit what you want to see
+- Click `View` to view full contact message.
