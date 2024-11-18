@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ImageData } from "@/app/lib/ImageData"
+import { TImage } from "../models/General";
 
 type Props = {
-    images: ImageData[]
+    images: TImage[]
 }
 
 const ImageSlider = ({ images }: Props) => {
@@ -47,15 +47,20 @@ const ImageSlider = ({ images }: Props) => {
             <div className="featured-post-slide">
                 {
                     images.map((image, id) => {
-                        return <Image key={id} src={image.src} alt={image.id} layout="fill" className={" image-slide " + (id == currentIndex ? "image-slide-visible" : "image-slide-invisible")} />
+                        return <Image key={id} src={image.image || ""} alt={image.id || ""} fill className={" image-slide " + (id == currentIndex ? "image-slide-visible" : "image-slide-invisible")} />
                     })
                 }
                 <div className="post-content">
-                    <ul className="entry-meta">
-                        <li>{images[currentIndex].meta[0]}</li>
-                        <li><a href="#" >{images[currentIndex].meta[1]}</a></li>
-                    </ul>
-                    <h1 className="slide-title"><a href="single-standard.html" title="">{images[currentIndex].title}</a></h1>
+                    {
+                        images[currentIndex].meta ?
+                            <ul className="entry-meta">
+                                <li>{images[currentIndex].meta[0]}</li>
+                                <li><a href="#" >{images[currentIndex].meta[1]}</a></li>
+                            </ul>
+                            :
+                            ""
+                    }
+                    <h1 className="slide-title"><a href="single-standard.html" title="">{images[currentIndex].alt}</a></h1>
                 </div>
                 <button className="absolute left-0 top-1/2 -translate-y-1/2 transform h-fit hover:bg-transparent rounded-xl mx-1  bg-black text-white p-4" onClick={prevSlide} >
                     <Image src={"/images/arrow-left.png"} className="text-gray-400 " alt={""} width={25} height={25} />

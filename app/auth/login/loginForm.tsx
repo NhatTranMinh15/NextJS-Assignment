@@ -22,7 +22,7 @@ const LoginForm = (props: Props) => {
                 <div className="form-field">
                     <input name="password" type="password" id="password" className={"full-width "} placeholder="Password" defaultValue="" />
                 </div>
-                <button type="submit" className="submit button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Login"}</button>
+                <button type="submit" className="submit button button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Login"}</button>
             </fieldset>
             {errors?.error && <p className='cForm-error'>{errors.error}</p>}
         </form>

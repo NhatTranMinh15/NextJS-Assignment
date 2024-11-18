@@ -13,62 +13,71 @@ import { TImage } from "../models/General";
 export const featuredImages: TImage[] = [
   {
     id: "0",
-    src: featuredImage1,
+    image: featuredImage1,
     meta: ["August 27, 2016", "Naruto Uzumaki"],
     alt: "Music Album Cover Designs for Inspiration",
+    src: ""
   },
   {
     id: "1",
-    src: featuredImage2,
+    image: featuredImage2,
     meta: ["September 06, 2016", "Naruto Uzumaki"],
     alt: "Minimalism Never Goes Out of Style",
+    src: ""
   },
   {
     id: "2",
-    src: featuredImage3,
+    image: featuredImage3,
     meta: ["August 29", "2016 Sasuke Uchiha"],
     alt: "Enhancing Your Designs with Negative Space",
+    src: ""
   },
 ];
 
 export const postImages: TImage[] = [
   {
     id: "0",
-    src: work1,
+    image: work1,
     meta: [],
-    alt: ""
+    alt: "",
+    src: ""
   },
   {
     id: "1",
-    src: work2,
+    image: work2,
     meta: [""],
-    alt: ""
+    alt: "",
+    src: ""
   },
   {
     id: "2",
-    src: work3,
+    image: work3,
     meta: [""],
-    alt: ""
+    alt: "",
+    src: ""
   },
 ];
 
 export const sliderImages: TImage[] = [
   {
     id: "0",
-    src: sliderImage1,
+    image: sliderImage1,
     meta: [],
-    alt: ""
+    alt: "",
+    src: ""
   },
   {
     id: "1",
-    src: sliderImage2,
+    image: sliderImage2,
     meta: [],
-    alt: ""
+    alt: "",
+    src: ""
   },
   {
     id: "2",
-    src: sliderImage3,
+    image: sliderImage3,
     meta: [],
-    alt: ""
+    alt: "",
+    src: ""
   },
 ];

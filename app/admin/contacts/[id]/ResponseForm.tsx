@@ -16,7 +16,7 @@ const ResponseForm = (props: Props) => {
                 <textarea name="cResponse" id="cResponse" className={"full-width " + (errors.cResponse ? "mb-0" : "")} placeholder="Response" ></textarea>
                 {errors.cResponse && <p className='cForm-error'>{errors.cResponse}</p>}
             </div>
-            <button type="submit" className="submit button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Submit"}</button>
+            <button type="submit" className="submit button button-primary full-width-on-mobile" disabled={isPending}>{isPending ? <Loader /> : "Submit"}</button>
 
         </form>
     )
