@@ -4,6 +4,14 @@ import Article from "./components/article/Article";
 import { fetchArticle } from "./api/article/articles";
 import Pagination from "./components/Pagination";
 
+
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Abstract',
+  description: 'Abstract',
+}
+
 export default async function Home(props: { searchParams?: Promise<{ search?: string; page?: string; }>; }) {
   const searchParams = await props.searchParams;  
 
